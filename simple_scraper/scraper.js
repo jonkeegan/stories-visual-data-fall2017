@@ -1,7 +1,8 @@
-var request = require("request");
-var cheerio = require('cheerio');
-var the_domain = process.argv[2];
+var request = require("request"); // request is used for all http requests
+var cheerio = require('cheerio'); // cheerio builds a jQuery compatible DOM for you to accesss with jQuery style selectors
+var the_domain = process.argv[2]; // this reads the url you pass to the script in the command line
 
+// first set all of the request options in this block...
 var request_options = {
   followAllRedirects: true,
   url:the_domain,
@@ -13,6 +14,6 @@ var request_options = {
 };
 
 request(request_options, function(error, response, html) {
-  	var $ = cheerio.load(html);
-    console.log( $('title').html() );
+  	var $ = cheerio.load(html); // this builds the DOM model for you saved as "$"
+    console.log( $('title').html() ); // this is only printing out the <title> element's value for the webpage
 });
