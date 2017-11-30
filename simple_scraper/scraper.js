@@ -15,5 +15,6 @@ var request_options = {
 
 request(request_options, function(error, response, html) {
   	var $ = cheerio.load(html); // this builds the DOM model for you saved as "$"
-    console.log( $('title').html() ); // this is only printing out the <title> element's value for the webpage
+    console.log($('title')); // spit out the reuslts...
+
 });
